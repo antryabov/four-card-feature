@@ -185,9 +185,8 @@ h3 {
   gap: 1rem;
 }
 .cards-section .info__text {
-  max-width: calc(32.75rem - 40px);
+  max-width: 29.75rem;
   text-align: center;
-  text-wrap: balance;
   line-height: var(--line-height-l);
   letter-spacing: var(--letter-spacing-l);
 }
