@@ -95,7 +95,8 @@ h3 {
     gap: 1rem;
 
     &__text {
-      max-width: 29.75rem;
+      max-width: 32.75rem;
+      font-size: var(--font-size-m);
       text-align: center;
       line-height: var(--line-height-l);
       letter-spacing: var(--letter-spacing-l);
