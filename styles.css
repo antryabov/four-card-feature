@@ -1,0 +1,257 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("./src/assets/fonts/Poppins-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./src/assets/fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./src/assets/fonts/Poppins-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* https://piccalil.li/blog/a-more-modern-css-reset/ */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+:root {
+  --color-red: hsl(0, 78%, 62%);
+  --color-cyan: hsl(180, 62%, 55%);
+  --color-orange: hsl(34, 97%, 64%);
+  --color-blue: hsl(212, 86%, 64%);
+  --color-grey-500: hsl(234, 12%, 34%);
+  --color-grey-400: hsl(212, 6%, 44%);
+  --color-white: hsl(0, 0%, 100%);
+  --bg-color: #fafafa;
+  --width-card: clamp(19.625rem, 18.833rem + 3.38vw, 21.875rem);
+  --section-padding-inline: clamp(1.9375rem, -0.9674rem + 12.3944vw, 10.1875rem);
+  --section-padding-block: clamp(3.5rem, 2.4877rem + 4.3192vw, 6.375rem)
+    clamp(2.875rem, 0.3002rem + 10.9859vw, 10.1875rem);
+  --padding-inline-card: 2rem;
+  --padding-block-card: 2rem 2.9375rem;
+  --font-family-base: "Poppins";
+  --font-size-xl: 2.25rem;
+  --font-size-l: 1.25rem;
+  --font-size-m: 0.9375rem;
+  --font-size-s: 0.8125rem;
+  --font-size-xl-mobile: 1.5rem;
+  --line-height-xl: 160%;
+  --line-height-l: 140%;
+  --line-height-m: 135%;
+  --letter-spacing-xl: 0.25px;
+  --letter-spacing-l: 0.1px;
+  --letter-spacing-m: 0.09px;
+  --gap-section: clamp(3.75rem, 3.4418rem + 1.315vw, 4.625rem);
+  --border-radius-base: 0.5rem;
+  --box-shadow-card: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
+  --transition-duration: 0.2s;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  color: var(--color-grey-500);
+  background-color: var(--bg-color);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2 {
+  letter-spacing: var(--letter-spacing-xl);
+}
+
+h1 {
+  font-size: clamp(var(--font-size-xl-mobile), 1.236rem + 1.127vw, var(--font-size-xl));
+  font-weight: 200;
+  line-height: var(--line-height-l);
+}
+
+h2 {
+  font-size: clamp(var(--font-size-xl-mobile), 1.236rem + 1.127vw, var(--font-size-xl));
+  font-weight: 600;
+  line-height: var(--line-height-l);
+}
+
+h3 {
+  font-size: var(--font-size-l);
+  font-weight: 600;
+  line-height: var(--line-height-m);
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--section-padding-block);
+  padding-inline: var(--section-padding-inline);
+  gap: var(--gap-section);
+}
+.cards-section .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.cards-section .info__text {
+  max-width: calc(32.75rem - 40px);
+  text-align: center;
+  text-wrap: balance;
+  line-height: var(--line-height-l);
+  letter-spacing: var(--letter-spacing-l);
+}
+.cards-section .cards__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: ". two ." "one two four" "one three four" ". three .";
+  gap: 2rem;
+}
+.cards-section .cards__wrapper .card-one {
+  grid-area: one;
+}
+.cards-section .cards__wrapper .card-two {
+  grid-area: two;
+}
+.cards-section .cards__wrapper .card-three {
+  grid-area: three;
+}
+.cards-section .cards__wrapper .card-four {
+  grid-area: four;
+}
+.cards-section .cards__wrapper .card {
+  max-width: var(--width-card);
+  padding-inline: var(--padding-inline-card);
+  padding-block: var(--padding-block-card);
+  border-radius: var(--border-radius-base);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow-card);
+}
+.cards-section .cards__wrapper .card__desc {
+  padding-bottom: 2rem;
+  font-size: var(--font-size-s);
+  color: var(--color-grey-400);
+  line-height: var(--line-height-xl);
+  letter-spacing: var(--letter-spacing-m);
+}
+.cards-section .cards__wrapper .card__img {
+  justify-self: end;
+}
+.cards-section .cards__wrapper .card.border-red {
+  border-top: 4px solid var(--color-red);
+}
+.cards-section .cards__wrapper .card.border-cyan {
+  border-top: 4px solid var(--color-cyan);
+}
+.cards-section .cards__wrapper .card.border-orange {
+  border-top: 4px solid var(--color-orange);
+}
+.cards-section .cards__wrapper .card.border-blue {
+  border-top: 4px solid var(--color-blue);
+}
+@media (max-width: 48rem) {
+  .cards-section .cards__wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: ". one one ." "two two three three" ". four four .";
+  }
+}
+@media (max-width: 36.25rem) {
+  .cards-section .cards__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "one" "two" "three" "four";
+    justify-items: center;
+  }
+}

@@ -9,7 +9,13 @@
   --color-grey-400: hsl(212, 6%, 44%);
   --color-white: hsl(0, 0%, 100%);
 
+  --bg-color: #fafafa;
+
   --width-card: clamp(19.625rem, 18.833rem + 3.38vw, 21.875rem);
+
+  --section-padding-inline: clamp(1.9375rem, -0.9674rem + 12.3944vw, 10.1875rem);
+  --section-padding-block: clamp(3.5rem, 2.4877rem + 4.3192vw, 6.375rem)
+    clamp(2.875rem, 0.3002rem + 10.9859vw, 10.1875rem);
 
   --padding-inline-card: 2rem;
   --padding-block-card: 2rem 2.9375rem;
@@ -19,34 +25,172 @@
   --font-size-xl: 2.25rem;
   --font-size-l: 1.25rem;
   --font-size-m: 0.9375rem;
-  --font-size-xl: 0.8125rem;
+  --font-size-s: 0.8125rem;
 
-  --font-size-mobile-l: 1.5rem;
-  --font-size-mobile-m: 0.9375rem;
+  --font-size-xl-mobile: 1.5rem;
 
   --line-height-xl: 160%;
   --line-height-l: 140%;
   --line-height-m: 135%;
 
+  --letter-spacing-xl: 0.25px;
+  --letter-spacing-l: 0.1px;
+  --letter-spacing-m: 0.09px;
+
+  --gap-section: clamp(3.75rem, 3.4418rem + 1.315vw, 4.625rem);
+
   --border-radius-base: 0.5rem;
+
+  --box-shadow-card: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
 
   --transition-duration: 0.2s;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-title-l);
-  line-height: var(--line-height-base);
-  color: var(--color-grey);
-  background-color: var(--color-cream);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  color: var(--color-grey-500);
+  background-color: var(--bg-color);
 }
 
 main {
   @include flex-center;
+}
 
-  height: 100vh;
+h1,
+h2 {
+  letter-spacing: var(--letter-spacing-xl);
+}
+
+h1 {
+  font-size: clamp(var(--font-size-xl-mobile), 1.236rem + 1.127vw, var(--font-size-xl));
+  font-weight: 200;
+  line-height: var(--line-height-l);
+}
+
+h2 {
+  font-size: clamp(var(--font-size-xl-mobile), 1.236rem + 1.127vw, var(--font-size-xl));
+  font-weight: 600;
+  line-height: var(--line-height-l);
+}
+
+h3 {
+  font-size: var(--font-size-l);
+  font-weight: 600;
+  line-height: var(--line-height-m);
+}
+
+.cards-section {
+  @include flex-column;
+
+  padding-block: var(--section-padding-block);
+  padding-inline: var(--section-padding-inline);
+  gap: var(--gap-section);
+
+  .info {
+    @include flex-column;
+
+    align-items: center;
+    gap: 1rem;
+
+    &__text {
+      max-width: calc(32.75rem - 40px);
+      text-align: center;
+      text-wrap: balance;
+      line-height: var(--line-height-l);
+      letter-spacing: var(--letter-spacing-l);
+    }
+  }
+
+  .cards {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-areas:
+        '. two .'
+        'one two four'
+        'one three four'
+        '. three .';
+      gap: 2rem;
+
+      .card-one {
+        grid-area: one;
+      }
+
+      .card-two {
+        grid-area: two;
+      }
+
+      .card-three {
+        grid-area: three;
+      }
+
+      .card-four {
+        grid-area: four;
+      }
+
+      .card {
+        max-width: var(--width-card);
+        padding-inline: var(--padding-inline-card);
+        padding-block: var(--padding-block-card);
+        border-radius: var(--border-radius-base);
+        background-color: var(--color-white);
+        box-shadow: var(--box-shadow-card);
+
+        &__desc {
+          padding-bottom: 2rem;
+          font-size: var(--font-size-s);
+          color: var(--color-grey-400);
+          line-height: var(--line-height-xl);
+          letter-spacing: var(--letter-spacing-m);
+        }
+
+        &__img {
+          justify-self: end;
+        }
+      }
+
+      .card.border-red {
+        border-top: 4px solid var(--color-red);
+      }
+
+      .card.border-cyan {
+        border-top: 4px solid var(--color-cyan);
+      }
+
+      .card.border-orange {
+        border-top: 4px solid var(--color-orange);
+      }
+
+      .card.border-blue {
+        border-top: 4px solid var(--color-blue);
+      }
+    }
+
+    @media (max-width: 48rem) {
+      &__wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+          '. one one .'
+          'two two three three'
+          '. four four .';
+      }
+    }
+
+    @media (max-width: 36.25rem) {
+      &__wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+          'one'
+          'two'
+          'three'
+          'four';
+        justify-items: center;
+      }
+    }
+  }
 }
