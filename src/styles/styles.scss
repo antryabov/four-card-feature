@@ -1,0 +1,52 @@
+@use './helpers/' as *;
+
+:root {
+  --color-red: hsl(0, 78%, 62%);
+  --color-cyan: hsl(180, 62%, 55%);
+  --color-orange: hsl(34, 97%, 64%);
+  --color-blue: hsl(212, 86%, 64%);
+  --color-grey-500: hsl(234, 12%, 34%);
+  --color-grey-400: hsl(212, 6%, 44%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --width-card: clamp(19.625rem, 18.833rem + 3.38vw, 21.875rem);
+
+  --padding-inline-card: 2rem;
+  --padding-block-card: 2rem 2.9375rem;
+
+  --font-family-base: 'Poppins';
+
+  --font-size-xl: 2.25rem;
+  --font-size-l: 1.25rem;
+  --font-size-m: 0.9375rem;
+  --font-size-xl: 0.8125rem;
+
+  --font-size-mobile-l: 1.5rem;
+  --font-size-mobile-m: 0.9375rem;
+
+  --line-height-xl: 160%;
+  --line-height-l: 140%;
+  --line-height-m: 135%;
+
+  --border-radius-base: 0.5rem;
+
+  --transition-duration: 0.2s;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-title-l);
+  line-height: var(--line-height-base);
+  color: var(--color-grey);
+  background-color: var(--color-cream);
+}
+
+main {
+  @include flex-center;
+
+  height: 100vh;
+}
